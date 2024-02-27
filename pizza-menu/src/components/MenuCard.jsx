@@ -6,6 +6,11 @@ export default function MenuCard({ pizzaObj }) {
                 src={pizzaObj.photoName}
                 alt={pizzaObj.name}
             />
+            <div>
+                <h3>{pizzaObj.name}</h3>
+                <p>{pizzaObj.ingredients}</p>
+            </div>
+            <span>{pizzaObj.soldOut ? 'SOLD OUT' : pizzaObj.price}</span>
         </li>
     );
 }
