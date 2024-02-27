@@ -2,9 +2,8 @@ import data from '../data';
 import MenuCard from './MenuCard';
 
 export default function Menu() {
-    const pizzaData = data;
-    const nums = pizzaData.length;
-    console.log(nums);
+    const nums = data.length;
+    console.log(data[0].name);
     return (
         <main className='menu'>
             <h2>Our Menu</h2>
@@ -15,7 +14,7 @@ export default function Menu() {
                         stone oven, all organic, all delicious.
                     </p>
                     <ul className='pizzas'>
-                        {pizzaData.map((pizza) => (
+                        {data.map((pizza) => (
                             <MenuCard
                                 key={pizza.name}
                                 pizzaObj={pizza}
