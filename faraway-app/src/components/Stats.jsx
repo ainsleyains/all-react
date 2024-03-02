@@ -1,7 +1,7 @@
 export default function Stats() {
     return (
-        <div className='add-form'>
-            <h3>What do you need for your trip 😍</h3>
-        </div>
+        <footer>
+            <em>You have x items on your list, and you have already packed x</em>
+        </footer>
     );
 }

@@ -1,3 +1,3 @@
 export default function PackingList() {
-    return <div className=''>Packing</div>;
+    return <div className='list'>List</div>;
 }
