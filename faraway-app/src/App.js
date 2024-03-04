@@ -15,6 +15,12 @@ function App() {
         setItems((prevItems) => prevItems.filter((item) => item.id !== id));
     }
 
+    function handleToggleItem(id) {
+        setItems((prevItems) =>
+            prevItems.map((item) => (item.id === id ? { ...item, packed: !item.packed } : item))
+        );
+    }
+
     return (
         <div className='app'>
             <Logo />
@@ -22,6 +28,7 @@ function App() {
             <PackingList
                 items={items}
                 onDeleteItems={handleDeleteItem}
+                onToggleItems={handleToggleItem}
             />
             <Stats />
         </div>
