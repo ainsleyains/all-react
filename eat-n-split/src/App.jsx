@@ -21,14 +21,24 @@ function App() {
         setShowAddForm(false);
     }
 
+    function handleSelectedFriend(selectedFriend) {
+        setSelectedFriend(selectedFriend);
+    }
+
     return (
         <div className='app'>
             <div className='sidebar'>
-                <FriendList friends={friends} />
-                {showAddForm && <FormAddFriend onHandleAddFriend={handleAddFriend} />}
+                <FriendList
+                    friends={friends}
+                    onSelectedFriend={handleSelectedFriend}
+                />
+
+                {showAddForm && <FormAddFriend onAddFriend={handleAddFriend} />}
+
                 <Button onClick={handleShow}>{showAddForm ? 'Close' : 'Add Friend'}</Button>
             </div>
-            {selectedFriend && <FormSplitBill />}
+
+            {selectedFriend && <FormSplitBill selectedFriend={selectedFriend} />}
         </div>
     );
 }
