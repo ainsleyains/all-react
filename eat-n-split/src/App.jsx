@@ -21,8 +21,11 @@ function App() {
         setShowAddForm(false);
     }
 
-    function handleSelectedFriend(selectedFriend) {
-        setSelectedFriend(selectedFriend);
+    function handleSelectedFriend(selectedObj) {
+        setSelectedFriend((prevSelectedFriend) =>
+            prevSelectedFriend?.id === selectedObj.id ? null : selectedObj
+        );
+        setShowAddForm(false);
     }
 
     return (
@@ -30,6 +33,7 @@ function App() {
             <div className='sidebar'>
                 <FriendList
                     friends={friends}
+                    selectedFriend={selectedFriend}
                     onSelectedFriend={handleSelectedFriend}
                 />
 
