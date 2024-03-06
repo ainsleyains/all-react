@@ -1,5 +1,6 @@
 import Button from './components/Button';
 import FormAddFriend from './components/FormAddFriend';
+import FormSplitBill from './components/FormSplitBill';
 import FriendList from './components/FriendList';
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
                 <FormAddFriend />
                 <Button>Add Friend</Button>
             </div>
+            <FormSplitBill />
         </div>
     );
 }
