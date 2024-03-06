@@ -3,22 +3,32 @@ import Button from './components/Button';
 import FormAddFriend from './components/FormAddFriend';
 import FormSplitBill from './components/FormSplitBill';
 import FriendList from './components/FriendList';
+import data from './data';
 
 function App() {
+    const [friends, setFriends] = useState(data);
+
     const [showAddForm, setShowAddForm] = useState(false);
+
+    const [selectedFriend, setSelectedFriend] = useState(null);
 
     function handleShow() {
         setShowAddForm((prevShowAddForm) => !prevShowAddForm);
     }
 
+    function handleAddFriend(friendObj) {
+        setFriends((prevFriends) => [...prevFriends, friendObj]);
+        setShowAddForm(false);
+    }
+
     return (
         <div className='app'>
             <div className='sidebar'>
-                <FriendList />
-                {showAddForm && <FormAddFriend />}
+                <FriendList friends={friends} />
+                {showAddForm && <FormAddFriend onHandleAddFriend={handleAddFriend} />}
                 <Button onClick={handleShow}>{showAddForm ? 'Close' : 'Add Friend'}</Button>
             </div>
-            <FormSplitBill />
+            {selectedFriend && <FormSplitBill />}
         </div>
     );
 }
