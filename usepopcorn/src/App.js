@@ -14,16 +14,19 @@ import ErrorMessage from './components/ErrorMessage';
 
 const KEY = '312774fb';
 export default function App() {
+    const [query, setQuery] = useState('');
     const [movies, setMovies] = useState([]);
     const [watched, setWatched] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(false);
+    const temp = 'interstellar';
 
     useEffect(() => {
         const fetchData = async () => {
             setIsLoading(true);
+            setError('');
             try {
-                const res = await fetch(`http://www.omdbapi.com/?apikey=${KEY}&s=star`);
+                const res = await fetch(`http://www.omdbapi.com/?apikey=${KEY}&s=${query}`);
 
                 if (!res.ok) throw new Error('Something went wrong with fetching movies');
 
@@ -38,18 +41,27 @@ export default function App() {
                 setIsLoading(false);
             }
         };
+
+        if (query.length < 3) {
+            setMovies([]);
+            setError('');
+            return;
+        }
         fetchData();
-    }, []);
+    }, [query]);
     return (
         <>
             <Navbar>
-                <Search />
+                <Search
+                    query={query}
+                    setQuery={setQuery}
+                />
                 <NumResults movies={movies} />
             </Navbar>
             <Main>
                 <Box>
                     {isLoading && <Loader />}
-                    {isLoading && !error && <MovieList movies={movies} />}
+                    {!isLoading && !error && <MovieList movies={movies} />}
                     {error && <ErrorMessage message={error} />}
                 </Box>
                 <Box>
