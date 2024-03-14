@@ -17,6 +17,7 @@ StarsRating.propTypes = {
     color: PropTypes.string,
     size: PropTypes.number,
     defaultRating: PropTypes.number,
+    onSetRating: PropTypes.func,
 };
 
 export default function StarsRating({
@@ -24,9 +25,15 @@ export default function StarsRating({
     color = '#fcc419',
     size = 48,
     defaultRating = 0,
+    onSetRating,
 }) {
     const [rating, setRating] = useState(defaultRating);
     const [tempRating, setTempRating] = useState(1);
+
+    function handleRating(rating) {
+        setRating(rating);
+        onSetRating(rating);
+    }
 
     const textStyle = {
         lineHeight: '1',
@@ -40,7 +47,7 @@ export default function StarsRating({
                 {Array.from({ length: maxRating }, (_, i) => (
                     <Star
                         key={i}
-                        onRating={() => setRating(i + 1)}
+                        onRating={() => handleRating(i + 1)}
                         full={tempRating ? tempRating >= i + 1 : rating >= i + 1}
                         onHoverIn={() => setTempRating(i + 1)}
                         onHoverOut={() => setRating(0)}
