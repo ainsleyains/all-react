@@ -40,6 +40,18 @@ export default function MovieDetails({ selectedId, onCloseMovie, onAddWatched, w
     }
 
     useEffect(() => {
+        const callback = (e) => {
+            if (e.code === 'Escape') {
+                onCloseMovie();
+            }
+        };
+        document.addEventListener('keydown', callback);
+        return function () {
+            document.removeEventListener('keydown', callback);
+        };
+    }, [onCloseMovie]);
+
+    useEffect(() => {
         const fetchData = async () => {
             try {
                 setIsLoading(true);
@@ -52,6 +64,7 @@ export default function MovieDetails({ selectedId, onCloseMovie, onAddWatched, w
                 console.log(err);
             }
         };
+
         fetchData();
     }, [selectedId]);
 

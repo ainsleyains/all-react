@@ -69,6 +69,7 @@ export default function App() {
             setError('');
             return;
         }
+        handleCloseMovie();
         fetchData();
         return function () {
             controller.abort();
