@@ -6,7 +6,7 @@ import Error from './components/Error';
 import StartScreen from './components/StartScreen';
 import Question from './components/Question';
 
-const initialState = { questions: [], status: 'loading' };
+const initialState = { questions: [], status: 'loading', index: 0, answer: null };
 
 function reducer(state, action) {
     switch (action.type) {
@@ -36,7 +36,7 @@ function App() {
     // const [state, dispatch] = useReducer(reducer, initialState);
 
     //destructure state obj
-    const [{ questions, status }, dispatch] = useReducer(reducer, initialState);
+    const [{ questions, status, index }, dispatch] = useReducer(reducer, initialState);
 
     const numQuestions = questions.length;
 
@@ -66,7 +66,7 @@ function App() {
                         dispatch={dispatch}
                     />
                 )}
-                {status === 'active' && <Question />}
+                {status === 'active' && <Question question={questions.at(index)} />}
             </Main>
         </div>
     );
