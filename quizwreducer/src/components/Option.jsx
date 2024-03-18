@@ -1,5 +1,5 @@
 export default function Option({ question, dispatch, answer }) {
-    const { id, options, points, correctOption } = question;
+    const { options, correctOption } = question;
     const hasAnswered = answer !== null;
     return (
         <div className='options'>

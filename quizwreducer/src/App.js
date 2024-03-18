@@ -6,6 +6,7 @@ import Error from './components/Error';
 import StartScreen from './components/StartScreen';
 import Question from './components/Question';
 import NextButton from './components/NextButton';
+import Progress from './components/Progress';
 
 const initialState = { questions: [], status: 'loading', index: 0, answer: null, points: 0 };
 
@@ -42,6 +43,7 @@ function reducer(state, action) {
             return {
                 ...state,
                 index: state.index + 1,
+                answer: null,
             };
 
         default:
@@ -59,6 +61,7 @@ function App() {
     );
 
     const numQuestions = questions.length;
+    const totalPoints = questions.reduce((acc, cur) => acc + cur.points, 0);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -88,6 +91,13 @@ function App() {
                 )}
                 {status === 'active' && (
                     <>
+                        <Progress
+                            index={index}
+                            numQuestions={numQuestions}
+                            points={points}
+                            totalPoints={totalPoints}
+                            answer={answer}
+                        />
                         <Question
                             question={questions.at(index)}
                             dispatch={dispatch}
