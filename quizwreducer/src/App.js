@@ -8,6 +8,8 @@ import Question from './components/Question';
 import NextButton from './components/NextButton';
 import Progress from './components/Progress';
 import FinishScreen from './components/FinishScreen';
+import Footer from './components/Footer';
+import Timer from './components/Timer';
 
 const initialState = {
     questions: [],
@@ -123,11 +125,14 @@ function App() {
                             dispatch={dispatch}
                             answer={answer}
                         />
-                        <NextButton
-                            dispatch={dispatch}
-                            index={index}
-                            numQuestions={numQuestions}
-                        />
+                        <Footer>
+                            <Timer />
+                            <NextButton
+                                dispatch={dispatch}
+                                index={index}
+                                numQuestions={numQuestions}
+                            />
+                        </Footer>
                     </>
                 )}
 
