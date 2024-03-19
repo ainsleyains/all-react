@@ -9,7 +9,14 @@ import NextButton from './components/NextButton';
 import Progress from './components/Progress';
 import FinishScreen from './components/FinishScreen';
 
-const initialState = { questions: [], status: 'loading', index: 0, answer: null, points: 0 };
+const initialState = {
+    questions: [],
+    status: 'loading',
+    index: 0,
+    answer: null,
+    points: 0,
+    highScore: 0,
+};
 
 function reducer(state, action) {
     switch (action.type) {
@@ -50,6 +57,7 @@ function reducer(state, action) {
             return {
                 ...state,
                 status: 'finished',
+                highScore: state.points > state.highScore ? state.points : state.highScore,
             };
 
         default:
@@ -61,7 +69,7 @@ function App() {
     // const [state, dispatch] = useReducer(reducer, initialState);
 
     //destructure state obj
-    const [{ questions, status, index, answer, points }, dispatch] = useReducer(
+    const [{ questions, status, index, answer, points, highScore }, dispatch] = useReducer(
         reducer,
         initialState
     );
@@ -121,6 +129,7 @@ function App() {
                     <FinishScreen
                         points={points}
                         totalPoints={totalPoints}
+                        highScore={highScore}
                     />
                 )}
             </Main>
