@@ -5,6 +5,7 @@ import PageNotFound from './pages/PageNotFound';
 import Homepage from './pages/Homepage';
 import AppLayout from './pages/AppLayout';
 import Login from './pages/Login';
+import CityList from './components/CityList';
 
 export default function App() {
     return (
@@ -32,7 +33,24 @@ export default function App() {
                 <Route
                     path='/app'
                     element={<AppLayout />}
-                />
+                >
+                    <Route
+                        index
+                        element={<CityList />}
+                    />
+                    <Route
+                        path='cities'
+                        element={<CityList />}
+                    />
+                    <Route
+                        path='countries'
+                        element={<p>countries</p>}
+                    />
+                    <Route
+                        path='form'
+                        element={<p>form</p>}
+                    />
+                </Route>
 
                 <Route
                     path='*'
