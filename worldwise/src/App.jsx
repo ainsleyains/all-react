@@ -4,11 +4,16 @@ import Pricing from './pages/Pricing';
 import PageNotFound from './pages/PageNotFound';
 import Homepage from './pages/Homepage';
 import AppLayout from './pages/AppLayout';
+import Login from './pages/Login';
 
 export default function App() {
     return (
         <BrowserRouter>
             <Routes>
+                <Route
+                    path='/'
+                    element={<Homepage />}
+                />
                 <Route
                     path='product'
                     element={<Product />}
@@ -18,9 +23,10 @@ export default function App() {
                     path='pricing'
                     element={<Pricing />}
                 />
+
                 <Route
-                    path='/'
-                    element={<Homepage />}
+                    path='login'
+                    element={<Login />}
                 />
 
                 <Route
