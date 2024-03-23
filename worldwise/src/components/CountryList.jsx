@@ -17,7 +17,7 @@ export default function CountryList({ cities, isLoading }) {
             {countries.map((country) => (
                 <CountryItem
                     country={country}
-                    key={country}
+                    key={country.country}
                 />
             ))}
         </ul>
