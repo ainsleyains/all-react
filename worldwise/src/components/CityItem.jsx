@@ -21,11 +21,11 @@ const flagemojiToPNG = (flag) => {
     );
 };
 export default function CityItem({ city }) {
-    const { cityName, emoji, date, id } = city;
+    const { cityName, emoji, date, id, position } = city;
     return (
         <li>
             <Link
-                to={`${id}`}
+                to={`${id}?lat=${position.lat}&lng=${position.lng}`}
                 className={styles.cityItem}
             >
                 <span className={styles.emoji}>{flagemojiToPNG(emoji)}</span>
@@ -43,5 +43,9 @@ CityItem.propTypes = {
         cityName: PropTypes.string.isRequired,
         emoji: PropTypes.string.isRequired,
         date: PropTypes.string.isRequired,
+        position: PropTypes.shape({
+            lat: PropTypes.number.isRequired,
+            lng: PropTypes.number.isRequired,
+        }).isRequired,
     }).isRequired,
 };
