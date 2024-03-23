@@ -7,6 +7,7 @@ import Pricing from './pages/Pricing';
 import AppLayout from './pages/AppLayout';
 import Login from './pages/Login';
 import CityList from './components/CityList';
+import City from './components/City';
 import CountryList from './components/CountryList';
 import PageNotFound from './pages/PageNotFound';
 
@@ -75,6 +76,10 @@ export default function App() {
                                 isLoading={isLoading}
                             />
                         }
+                    />
+                    <Route
+                        path='cities/:id'
+                        element={<City />}
                     />
                     <Route
                         path='countries'
