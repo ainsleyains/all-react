@@ -1,3 +1,7 @@
 {
-    "extends": "react-app"
+    "extends": ["plugin:react/recommended"],
+    "rules": {
+        "react-refresh/only-export-components": "off",
+        "no-unused-vars": ["error", { "varsIgnorePattern": "^_", "argsIgnorePattern": "^_" }]
+    }
 }
