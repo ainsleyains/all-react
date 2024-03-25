@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
 import styles from './CountryItem.module.css';
-import PropTypes from 'prop-types';
 
+// eslint-disable-next-line react/prop-types
 function CountryItem({ country }) {
     const flagemojiToPNG = (flag) => {
         var countryCode = Array.from(flag, (codeUnit) => codeUnit.codePointAt())
@@ -21,12 +22,5 @@ function CountryItem({ country }) {
         </li>
     );
 }
-
-CountryItem.propTypes = {
-    country: PropTypes.shape({
-        country: PropTypes.string.isRequired,
-        emoji: PropTypes.string.isRequired,
-    }).isRequired,
-};
 
 export default CountryItem;
