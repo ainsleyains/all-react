@@ -1,40 +1,76 @@
 {
-    "cities": [
-        {
-            "cityName": "Lisbon",
-            "country": "Portugal",
-            "emoji": "🇵🇹",
-            "date": "2027-10-31T15:59:59.138Z",
-            "notes": "My favorite city so far!",
-            "position": {
-                "lat": 38.727881642324164,
-                "lng": -9.140900099907554
-            },
-            "id": 73930385
-        },
-        {
-            "cityName": "Madrid",
-            "country": "Spain",
-            "emoji": "🇪🇸",
-            "date": "2027-07-15T08:22:53.976Z",
-            "notes": "",
-            "position": {
-                "lat": 40.46635901755316,
-                "lng": -3.7133789062500004
-            },
-            "id": 17806751
-        },
-        {
-            "cityName": "Berlin",
-            "country": "Germany",
-            "emoji": "🇩🇪",
-            "date": "2027-02-12T09:24:11.863Z",
-            "notes": "Amazing 😃",
-            "position": {
-                "lat": 52.53586782505711,
-                "lng": 13.376933665713324
-            },
-            "id": 98443197
-        }
-    ]
+  "cities": [
+    {
+      "cityName": "Lisbon",
+      "country": "Portugal",
+      "emoji": "🇵🇹",
+      "date": "2027-10-31T15:59:59.138Z",
+      "notes": "My favorite city so far!",
+      "position": {
+        "lat": 38.727881642324164,
+        "lng": -9.140900099907554
+      },
+      "id": "73930385"
+    },
+    {
+      "cityName": "Madrid",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2027-07-15T08:22:53.976Z",
+      "notes": "",
+      "position": {
+        "lat": 40.46635901755316,
+        "lng": -3.7133789062500004
+      },
+      "id": "17806751"
+    },
+    {
+      "cityName": "Berlin",
+      "country": "Germany",
+      "emoji": "🇩🇪",
+      "date": "2027-02-12T09:24:11.863Z",
+      "notes": "Amazing 😃",
+      "position": {
+        "lat": 52.53586782505711,
+        "lng": 13.376933665713324
+      },
+      "id": "98443197"
+    },
+    {
+      "id": "8c5e",
+      "cityName": "Leusden",
+      "country": "Netherlands (Kingdom of the)",
+      "emoji": "🇳🇱",
+      "date": "2024-03-28T03:51:21.135Z",
+      "notes": "",
+      "position": {
+        "lat": "52.13447588363727",
+        "lng": "5.449218750000001"
+      }
+    },
+    {
+      "id": "7eaf",
+      "cityName": "Gretz-Armainvilliers",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "2024-03-28T03:55:05.787Z",
+      "notes": "",
+      "position": {
+        "lat": "48.75107204883967",
+        "lng": "2.7246093750000004"
+      }
+    },
+    {
+      "id": "1c9b",
+      "cityName": "London",
+      "country": "United Kingdom of Great Britain and Northern Ireland (the)",
+      "emoji": "🇬🇧",
+      "date": "2024-03-28T03:57:41.983Z",
+      "notes": "",
+      "position": {
+        "lat": "51.52295266636493",
+        "lng": "0.10986328125000001"
+      }
+    }
+  ]
 }
