@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useMemo } from 'react';
 import { faker } from '@faker-js/faker';
 
 function createRandomPost() {
@@ -17,9 +17,7 @@ function PostProvider({ children }) {
     // Derived state. These are the posts that will actually be displayed
     const searchedPosts =
         searchQuery.length > 0
-            ? posts.filter((post) =>
-                  `${post.title} ${post.body}`.toLowerCase().includes(searchQuery.toLowerCase())
-              )
+            ? posts.filter((post) => `${post.title} ${post.body}`.toLowerCase().includes(searchQuery.toLowerCase()))
             : posts;
 
     function handleAddPost(post) {
@@ -29,19 +27,20 @@ function PostProvider({ children }) {
     function handleClearPosts() {
         setPosts([]);
     }
+
+    const value = useMemo(() => {
+        return {
+            posts: searchedPosts,
+            onAddPost: handleAddPost,
+            onClearPosts: handleClearPosts,
+            searchQuery,
+            setSearchQuery,
+        };
+    }, [searchedPosts, searchQuery]);
+
     return (
         // 2) PROVIDE VALUE TO CHILD COMPONENTS
-        <PostContext.Provider
-            value={{
-                posts: searchedPosts,
-                onAddPost: handleAddPost,
-                onClearPosts: handleClearPosts,
-                searchQuery,
-                setSearchQuery,
-            }}
-        >
-            {children}
-        </PostContext.Provider>
+        <PostContext.Provider value={value}>{children}</PostContext.Provider>
     );
 }
 
