@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 // const fakeCart = [
 //     {
@@ -29,16 +29,21 @@ function Cart() {
 
     return (
         <div>
-            <Link to='/menu'>&larr; Back to menu</Link>
+            <Link
+                to="/menu"
+                className="text-sm text-blue-500 hover:text-blue-600"
+            >
+                &larr; Back to menu
+            </Link>
 
             <h2>Your cart, %NAME%</h2>
 
             <div>
-                <Link to='/order/new'>Order pizzas</Link>
+                <Link to="/order/new">Order pizzas</Link>
                 <button>Clear cart</button>
             </div>
         </div>
-    );
+    )
 }
 
-export default Cart;
+export default Cart
