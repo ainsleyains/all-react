@@ -1,16 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-    // cart: [],
-    cart: [
-        {
-            pizzaId: 12,
-            name: 'Romana',
-            quantity: 2,
-            unitPrice: 16,
-            totalPrice: 32,
-        },
-    ],
+    cart: [],
 }
 
 const cartSlice = createSlice({
@@ -54,3 +45,9 @@ export const {
 } = cartSlice.actions
 
 export default cartSlice.reducer
+
+export const getTotalQty = (state) =>
+    state.cart.cart.reduce((sum, item) => sum + item.quantity, 0)
+
+export const getTotalPrice = (state) =>
+    state.cart.cart.reduce((sum, item) => sum + item.totalPrice, 0)
