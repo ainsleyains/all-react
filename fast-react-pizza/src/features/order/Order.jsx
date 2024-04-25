@@ -10,6 +10,7 @@ import { getOrder } from '../../services/apiRestaurant'
 import { useLoaderData, useFetcher } from 'react-router-dom'
 import OrderItem from './OrderItem'
 import { useEffect } from 'react'
+import UpdateOrder from './UpdateOrder'
 
 function Order() {
     const order = useLoaderData()
@@ -86,6 +87,7 @@ function Order() {
                     {formatCurrency(orderPrice + priorityPrice)}
                 </p>
             </div>
+            {!priority && <UpdateOrder order={order} />}
         </div>
     )
 }
