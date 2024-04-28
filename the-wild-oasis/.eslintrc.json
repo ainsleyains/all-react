@@ -1,0 +1,8 @@
+{
+    "extends": "react-app",
+    "rules": {
+        "react-refresh/only-export-components": "off",
+        "no-unused-vars": ["error", { "varsIgnorePattern": "^_", "argsIgnorePattern": "^_" }],
+        "react/prop-types": "off"
+    }
+}
