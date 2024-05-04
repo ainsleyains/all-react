@@ -4,6 +4,7 @@ import GlobalStyles from './styles/GlobalStyles';
 // import Input from './ui/Input';
 // import Row from './ui/Row';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import Dashboard from './pages/Dashboard';
 import Bookings from './pages/Bookings';
 import Cabins from './pages/Cabins';
@@ -14,9 +15,17 @@ import Login from './pages/Login';
 import PageNotFound from './pages/PageNotFound';
 import AppLayout from './ui/AppLayout';
 
+const queryClient = new QueryClient({
+    defaultOptions: {
+        queries: {
+            staleTime: 60 * 1000,
+        },
+    },
+});
+
 export default function App() {
     return (
-        <>
+        <QueryClientProvider client={queryClient}>
             <GlobalStyles />
             <BrowserRouter>
                 <Routes>
@@ -72,6 +81,6 @@ export default function App() {
                     />
                 </Routes>
             </BrowserRouter>
-        </>
+        </QueryClientProvider>
     );
 }
