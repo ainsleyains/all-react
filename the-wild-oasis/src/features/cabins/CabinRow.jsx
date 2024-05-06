@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import styled from 'styled-components';
 import { formatCurrency } from '../../utils/helpers';
 
@@ -42,6 +43,7 @@ const Discount = styled.div`
 
 export default function CabinRow({ cabin }) {
     const { name, maxCapacity, regularPrice, discount, image } = cabin;
+    console.log(image);
     return (
         <TableRow role='row'>
             <Img src={image} />
