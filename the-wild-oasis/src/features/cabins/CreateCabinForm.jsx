@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import { useForm } from 'react-hook-form';
 import Input from '../../ui/Input';
 import Form from '../../ui/Form';
 import Button from '../../ui/Button';
@@ -38,18 +38,25 @@ const Label = styled.label`
 `;
 
 // const Error = styled.span`
-//   font-size: 1.4rem;
-//   color: var(--color-red-700);
+//     font-size: 1.4rem;
+//     color: var(--color-red-700);
 // `;
 
 function CreateCabinForm() {
+    const { register, handleSubmit } = useForm();
+
+    function onSubmit(data) {
+        console.log(data);
+    }
+
     return (
-        <Form>
+        <Form onSubmit={handleSubmit(onSubmit)}>
             <FormRow>
                 <Label htmlFor='name'>Cabin name</Label>
                 <Input
                     type='text'
                     id='name'
+                    {...register('name')}
                 />
             </FormRow>
 
@@ -58,6 +65,7 @@ function CreateCabinForm() {
                 <Input
                     type='number'
                     id='maxCapacity'
+                    {...register('maxCapacity')}
                 />
             </FormRow>
 
@@ -66,6 +74,7 @@ function CreateCabinForm() {
                 <Input
                     type='number'
                     id='regularPrice'
+                    {...register('regularPrice')}
                 />
             </FormRow>
 
@@ -75,6 +84,7 @@ function CreateCabinForm() {
                     type='number'
                     id='discount'
                     defaultValue={0}
+                    {...register('discount')}
                 />
             </FormRow>
 
@@ -84,6 +94,7 @@ function CreateCabinForm() {
                     type='number'
                     id='description'
                     defaultValue=''
+                    {...register('description')}
                 />
             </FormRow>
 
@@ -103,7 +114,7 @@ function CreateCabinForm() {
                 >
                     Cancel
                 </Button>
-                <Button>Edit cabin</Button>
+                <Button>Add cabin</Button>
             </FormRow>
         </Form>
     );
