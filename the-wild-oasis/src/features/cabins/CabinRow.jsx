@@ -51,7 +51,7 @@ export default function CabinRow({ cabin }) {
     const [showForm, setShowForm] = useState(false);
     const { isDeleting, deleteCabin } = useDeleteCabin();
 
-    const { createCabin } = useCreateCabin();
+    const { isCreating, createCabin } = useCreateCabin();
 
     const { id: cabinId, name, maxCapacity, regularPrice, discount, image, description } = cabin;
 
@@ -75,7 +75,10 @@ export default function CabinRow({ cabin }) {
                 <Price>{formatCurrency(regularPrice)}</Price>
                 {discount ? <Discount>{formatCurrency(discount)}</Discount> : <span>&mdash;</span>}
                 <div>
-                    <button onClick={handleDuplicate}>
+                    <button
+                        disabled={isCreating}
+                        onClick={handleDuplicate}
+                    >
                         <HiSquare2Stack />
                     </button>
                     <button onClick={() => setShowForm((prevShowForm) => !prevShowForm)}>
